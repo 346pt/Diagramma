@@ -1,0 +1,94 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 YaBrowser/24.10.0.0 Safari/537.36" version="24.8.3">
+  <diagram name="Страница — 1" id="Tr-dCJaDaNjnLGFhSG97">
+    <mxGraphModel dx="1877" dy="1736" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-1" value="Продукция" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" width="140" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-2" value="ID продкута" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="Yt7TR-79jss1lw_sNKHO-1">
+          <mxGeometry y="26" width="140" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-3" value="Название продукта" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="Yt7TR-79jss1lw_sNKHO-1">
+          <mxGeometry y="52" width="140" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-4" value="Кол-во продукта&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Цена продукта&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;ID заказа&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;ID поставщика&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="Yt7TR-79jss1lw_sNKHO-1">
+          <mxGeometry y="78" width="140" height="112" as="geometry" />
+        </mxCell>
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-5" value="Материалы" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="-110" width="140" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-6" value="ID материала" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="Yt7TR-79jss1lw_sNKHO-5">
+          <mxGeometry y="26" width="140" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-7" value="Название материалы" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="Yt7TR-79jss1lw_sNKHO-5">
+          <mxGeometry y="52" width="140" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-8" value="Кол-во материала&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Цена материала&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;ID продукции&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="Yt7TR-79jss1lw_sNKHO-5">
+          <mxGeometry y="78" width="140" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-9" value="Заказы" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="140" width="140" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-10" value="ID заказа" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="Yt7TR-79jss1lw_sNKHO-9">
+          <mxGeometry y="26" width="140" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-11" value="Номер заказа" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="Yt7TR-79jss1lw_sNKHO-9">
+          <mxGeometry y="52" width="140" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-12" value="Состав заказа&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Дата реализации&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;ID клиента&amp;nbsp;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="Yt7TR-79jss1lw_sNKHO-9">
+          <mxGeometry y="78" width="140" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-13" value="Поставщики" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-60" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-14" value="ID поставщика" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontStyle=1" vertex="1" parent="Yt7TR-79jss1lw_sNKHO-13">
+          <mxGeometry y="26" width="140" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-15" value="Название поставщика" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="Yt7TR-79jss1lw_sNKHO-13">
+          <mxGeometry y="52" width="140" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-16" value="Контакты поставщика&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;ID продукции&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="Yt7TR-79jss1lw_sNKHO-13">
+          <mxGeometry y="78" width="140" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-17" value="Клиенты" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="260" width="140" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-18" value="ID клиента" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="Yt7TR-79jss1lw_sNKHO-17">
+          <mxGeometry y="26" width="140" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-19" value="ФИО клиента" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="Yt7TR-79jss1lw_sNKHO-17">
+          <mxGeometry y="52" width="140" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-20" value="Номер заказа&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Адрес клиента&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="Yt7TR-79jss1lw_sNKHO-17">
+          <mxGeometry y="78" width="140" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-21" value="" style="endArrow=ERmany;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.994;entryY=0.835;entryDx=0;entryDy=0;entryPerimeter=0;endFill=0;startSize=10;endSize=11;" edge="1" parent="1" source="Yt7TR-79jss1lw_sNKHO-18" target="Yt7TR-79jss1lw_sNKHO-12">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="530" y="330" as="sourcePoint" />
+            <mxPoint x="580" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-22" value="" style="endArrow=ERmany;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.986;entryY=0.873;entryDx=0;entryDy=0;entryPerimeter=0;endFill=0;startSize=10;endSize=11;" edge="1" parent="1" source="Yt7TR-79jss1lw_sNKHO-10" target="Yt7TR-79jss1lw_sNKHO-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="610" y="369" as="sourcePoint" />
+            <mxPoint x="493" y="355" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-23" value="" style="endArrow=ERmany;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endFill=0;startSize=10;endSize=11;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Yt7TR-79jss1lw_sNKHO-14" target="Yt7TR-79jss1lw_sNKHO-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="354" y="239" as="sourcePoint" />
+            <mxPoint x="170" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Yt7TR-79jss1lw_sNKHO-24" value="" style="endArrow=ERmany;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.007;entryY=0.789;entryDx=0;entryDy=0;entryPerimeter=0;endFill=0;startSize=10;endSize=11;" edge="1" parent="1" source="Yt7TR-79jss1lw_sNKHO-2" target="Yt7TR-79jss1lw_sNKHO-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="354" y="239" as="sourcePoint" />
+            <mxPoint x="268" y="236" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
