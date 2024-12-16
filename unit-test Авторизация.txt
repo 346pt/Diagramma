@@ -1,0 +1,102 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Windows.Forms;
+using System.Diagnostics.CodeAnalysis;
+
+// Необходимо добавить ссылку на System.Windows.Forms
+// Для создания unit-тестов, используйте:
+// Right click на проекте > Add > New Item > Unit Test
+
+namespace Project_with_BD.Tests
+{
+    [TestClass]
+    public class Form1Tests
+    {
+        private const string correctUsername = "correctUser";
+        private const string correctPassword = "correctPassword";
+
+        // Mock-объекты для textBox1 и textBox2
+        private MockTextBox textBox1Mock;
+        private MockTextBox textBox2Mock;
+        private MockMessageBox mockMessageBox;
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            textBox1Mock = new MockTextBox();
+            textBox2Mock = new MockTextBox();
+            mockMessageBox = new MockMessageBox();
+        }
+
+
+        [TestMethod]
+        public void Login_CorrectCredentials_DisplaysSuccessMessage()
+        {
+            // Arrange
+            textBox1Mock.Text = correctUsername;
+            textBox2Mock.Text = correctPassword;
+
+            // Act
+            var form1 = new Form1();
+            form1.textBox1 = textBox1Mock;
+            form1.textBox2 = textBox2Mock;
+            form1.MessageBox = mockMessageBox;
+            form1.button1_Click(null, null);
+
+            // Assert
+            Assert.AreEqual("Вход выполнен успешно", mockMessageBox.Message);
+
+            //Проверка, что форма открыта:
+            Assert.IsTrue(form1.IsDisposed == false);
+
+
+        }
+
+
+        [TestMethod]
+        public void Login_IncorrectCredentials_DisplaysErrorMessage()
+        {
+            // Arrange
+            textBox1Mock.Text = "incorrectUser";
+            textBox2Mock.Text = "incorrectPassword";
+
+
+            // Act
+            var form1 = new Form1();
+            form1.textBox1 = textBox1Mock;
+            form1.textBox2 = textBox2Mock;
+            form1.MessageBox = mockMessageBox;
+            form1.button1_Click(null, null);
+
+            // Assert
+            Assert.AreEqual("Неверный логин или пароль", mockMessageBox.Message);
+
+            // Проверяем, что поля очищены.
+            Assert.AreEqual(string.Empty, textBox1Mock.Text);
+            Assert.AreEqual(string.Empty, textBox2Mock.Text);
+
+
+        }
+
+        // Мок для MessageBox
+        public class MockMessageBox
+        {
+            public string Message { get; set; }
+
+            public void Show(string message)
+            {
+                Message = message;
+            }
+        }
+
+        // Мок для TextBox
+        public class MockTextBox : TextBox
+        {
+            public string Text
+            {
+                get { return base.Text; }
+                set { base.Text = value; }
+            }
+        }
+    }
+}

@@ -1,0 +1,101 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Data.SqlClient;
+using System.Windows.Forms;
+using System.Diagnostics.CodeAnalysis;
+
+// Необходимо добавить ссылку на System.Windows.Forms
+// Для создания unit-тестов, используйте:
+// Right click на проекте > Add > New Item > Unit Test
+
+namespace Project_with_BD.Tests
+{
+    [TestClass]
+    public class Form1Tests
+    {
+        // ... (ваш код подключения и других вспомогательных функций) ...
+
+
+        [TestMethod]
+        public void UpdateSupplier_ValidData_UpdatesSuccessfully()
+        {
+            // Arrange
+            string connectionString = "your_connection_string"; // Подключение к базе данных
+            string originalName = "OriginalSupplierName";
+            string newName = "UpdatedSupplierName";
+            string productID = "12345";
+
+            // Предполагаем, что Supplier с ID=1 существует.
+            // Можно использовать более элегантные подходы для генерации тестовых данных.
+
+
+            var mockTextBox1 = new MockTextBox { Text = "1" };
+            var mockTextBox2 = new MockTextBox { Text = newName };
+            var mockTextBox3 = new MockTextBox { Text = productID };
+            var mockTextBox4 = new MockTextBox { Text = "NewContacts" };
+            var mockMessageBox = new MockMessageBox();
+
+
+            var form1 = new Form1();
+
+            //Мок для LoadData
+            var mockLoadData = new MockLoadData(form1);
+
+            // Mock-объекты для textBox1, textBox2, textBox3, textBox4 и MessageBox.
+            form1.textBox1 = mockTextBox1;
+            form1.textBox2 = mockTextBox2;
+            form1.textBox3 = mockTextBox3;
+            form1.textBox4 = mockTextBox4;
+            form1.MessageBox = mockMessageBox;
+
+            form1.LoadData = mockLoadData;
+
+            form1.connectionString = connectionString;
+
+            // Act
+            form1.button3_Click(null, null);
+
+            // Assert
+            Assert.AreEqual("Данные успешно обновлены!", mockMessageBox.Message);
+        }
+
+
+
+        // Мок для MessageBox
+        public class MockMessageBox
+        {
+            public string Message { get; set; }
+
+            public void Show(string message)
+            {
+                Message = message;
+            }
+        }
+
+        // Mock для TextBox
+        public class MockTextBox : TextBox
+        {
+            public string Text
+            {
+                get { return base.Text; }
+                set { base.Text = value; }
+            }
+        }
+
+        public class MockLoadData
+        {
+            private Form1 form;
+
+            public MockLoadData(Form1 form)
+            {
+                this.form = form;
+            }
+
+
+            public void LoadData()
+            {
+                // Имитируем загрузку данных
+            }
+        }
+    }
+}

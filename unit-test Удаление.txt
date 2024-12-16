@@ -1,0 +1,90 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Data.SqlClient;
+using System.Windows.Forms;
+using Moq;
+
+namespace mebel0._1.Tests
+{
+    [TestClass]
+    public class Form1Tests
+    {
+        // ... (ваш код подключения и других вспомогательных функций) ...
+
+        private Mock<TextBox> textBox1Mock;
+        private Mock<MessageBox> mockMessageBox;
+        private Mock<SqlConnection> mockSqlConnection;
+        private Mock<SqlCommand> mockSqlCommand;
+        private Mock<Form1> form1Mock;
+        private Mock<IDataReader> mockDataReader;
+
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            textBox1Mock = new Mock<TextBox>();
+            mockMessageBox = new Mock<MessageBox>();
+            mockSqlConnection = new Mock<SqlConnection>();
+            mockSqlCommand = new Mock<SqlCommand>();
+            form1Mock = new Mock<Form1>();
+        }
+
+
+
+        [TestMethod]
+        public void DeleteSupplier_ExistingSupplier_Success()
+        {
+            // Arrange
+            string idToDelete = "123";
+            textBox1Mock.Setup(tb => tb.Text).Returns(idToDelete);
+
+            // Mock successful execution. Crucially, simulate a row being affected.
+            mockSqlCommand.Setup(cmd => cmd.ExecuteNonQuery()).Returns(1); // One row affected
+            mockSqlConnection.Setup(conn => conn.Open()).Returns(true);
+
+
+            form1Mock.Setup(f => f.LoadData()).Verifiable(); // Mock LoadData
+
+            // Act
+            var form = form1Mock.Object;
+            form.textBox1 = textBox1Mock.Object;
+            form.MessageBox = mockMessageBox.Object;
+            form.connectionString = "your_connection_string"; // Replace with your actual connection string!
+            form.button2_Click(null, null);
+
+            // Assert
+            mockMessageBox.Verify(mb => mb.Show("Поставщик успешно удалён."));
+            form1Mock.Verify(f => f.LoadData(), Times.Once());
+
+        }
+
+
+
+        [TestMethod]
+        public void DeleteSupplier_NonExistingSupplier_Failure()
+        {
+            // Arrange
+            string idToDelete = "456";
+            textBox1Mock.Setup(tb => tb.Text).Returns(idToDelete);
+            mockSqlCommand.Setup(cmd => cmd.ExecuteNonQuery()).Returns(0); // Zero rows affected
+
+            mockSqlConnection.Setup(conn => conn.Open()).Returns(true);
+
+            form1Mock.Setup(f => f.LoadData()).Verifiable();
+
+
+            // Act
+            var form = form1Mock.Object;
+            form.textBox1 = textBox1Mock.Object;
+            form.MessageBox = mockMessageBox.Object;
+            form.connectionString = "your_connection_string"; // Replace with your actual connection string!
+            form.button2_Click(null, null);
+
+            // Assert
+            mockMessageBox.Verify(mb => mb.Show("Поставщик не найден."));
+            form1Mock.Verify(f => f.LoadData(), Times.Once());
+
+        }
+        // ... (other test methods)
+    }
+}

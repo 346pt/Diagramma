@@ -1,0 +1,39 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Windows.Forms;
+using Moq; // Не забудьте добавить Moq в ваши ссылки
+
+namespace mebel0._1.Tests
+{
+    [TestClass]
+    public class Form1Tests
+    {
+        private Mock<ToolStripMenuItem> поставщикиToolStripMenuItemMock;
+        private Mock<Form5> form5Mock;
+        private Mock<Form1> form1Mock;
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            поставщикиToolStripMenuItemMock = new Mock<ToolStripMenuItem>();
+            form5Mock = new Mock<Form5>();
+            form1Mock = new Mock<Form1>();
+        }
+
+        [TestMethod]
+        public void OpenSupplierForm_ClickEvent_OpensForm()
+        {
+            // Arrange
+            
+            // Симулируем событие клика
+            
+            // Act
+            form1Mock.Object.поставщикиToolStripMenuItem_Click(поставщикиToolStripMenuItemMock.Object, EventArgs.Empty);
+
+            // Assert
+            form5Mock.Verify(f => f.ShowDialog(), Times.Once());
+        }
+
+
+    }
+}

@@ -1,0 +1,79 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Data.SqlClient;
+using System.Windows.Forms;
+using Moq; // Не забудьте добавить Moq в ваши ссылки
+
+namespace mebel0._1.Tests
+{
+    [TestClass]
+    public class Form1Tests
+    {
+        private Mock<TextBox> textBox1Mock;
+        private Mock<TextBox> textBox2Mock;
+        private Mock<TextBox> textBox3Mock;
+        private Mock<TextBox> textBox4Mock;
+        private Mock<MessageBox> mockMessageBox;
+        private Mock<Form1> form1Mock; // Mock для самого Form1
+        private Mock<SqlConnection> mockSqlConnection; // Mock для SqlConnection
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            textBox1Mock = new Mock<TextBox>();
+            textBox2Mock = new Mock<TextBox>();
+            textBox3Mock = new Mock<TextBox>();
+            textBox4Mock = new Mock<TextBox>();
+            mockMessageBox = new Mock<MessageBox>();
+            mockSqlConnection = new Mock<SqlConnection>();
+            form1Mock = new Mock<Form1>();
+        }
+
+        [TestMethod]
+        public void AddSupplier_ValidData_Success()
+        {
+            // Arrange
+            string id = "123";
+            string name = "Test Supplier";
+            string productID = "456";
+            string contacts = "test@example.com";
+
+            textBox1Mock.Setup(tb => tb.Text).Returns(id);
+            textBox2Mock.Setup(tb => tb.Text).Returns(name);
+            textBox3Mock.Setup(tb => tb.Text).Returns(productID);
+            textBox4Mock.Setup(tb => tb.Text).Returns(contacts);
+
+
+            // Mock successful execution of command
+            var mockCommand = new Mock<SqlCommand>();
+            mockCommand.Setup(cmd => cmd.ExecuteNonQuery()).Returns(1); // Simulate success
+
+            mockSqlConnection.Setup(conn => conn.Open()).Returns(true);
+            mockSqlConnection.Setup(conn => conn.Close()).Verifiable();
+            mockSqlConnection.Setup(conn => conn.Open()).Returns(true).Verifiable();
+            mockCommand.SetupAllProperties(); // Important!  
+            mockCommand.Setup(x => x.Parameters.AddWithValue(It.IsAny<string>(), It.IsAny<object>())).Verifiable();
+
+
+            form1Mock.Setup(f => f.LoadData()).Verifiable();
+
+            // Act
+            var form = form1Mock.Object; // Use form1Mock as it is
+            form.textBox1 = textBox1Mock.Object;
+            form.textBox2 = textBox2Mock.Object;
+            form.textBox3 = textBox3Mock.Object;
+            form.textBox4 = textBox4Mock.Object;
+            form.MessageBox = mockMessageBox.Object;
+            form.connectionString = "your_connection_string"; // Set your connection string in the test
+            form.button1_Click(null, null);
+
+            // Assert
+            mockMessageBox.Verify(mb => mb.Show("Поставщик успешно добавлен!"));
+            mockSqlConnection.VerifyAll();
+            mockCommand.VerifyAll();
+            form1Mock.Verify(f => f.LoadData(), Times.Once); // Verify call to LoadData
+        }
+
+        // ... (other test methods, e.g., handling empty/invalid data)
+    }
+}
